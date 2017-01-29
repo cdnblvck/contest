@@ -27,19 +27,38 @@ public class InterfaceRegionJobMarsImpl implements RegionJobMars2016 {
 	}
 
 	@Override
-	public int banderole(List<Poteau> poteaux) {
-		ArrayList<Integer> listes = new ArrayList<>();
-		for (int i = 0; i < poteaux.size(); i++) {
-			if (!listes.contains(poteaux.get(i))) {
-				listes.add(poteaux.get(i).getHauteur());
+	public int banderole(int[] poteaux) {
+		List<Integer> idem = new ArrayList<>();
+		int dif = 0;
+		int retour = 0;
+		int p[] = new int[poteaux.length];
+		for (int i = 0; i < poteaux.length - 1; i++) {
+			if (!idem.contains(poteaux[i])) {
+				idem.add(poteaux[i]);
+				retour += poteaux[i];
 			} else {
-				int pos[] = new int[poteaux.size()];
-				pos[i] = poteaux.get(i).getHauteur();
+				if (idem.size() >= 2) {
+					for (int j = 0; j < idem.size(); j++) {
+						
+					}
+				} else {
+					p[dif] = i;
+				}
 			}
 		}
-
+		dif = calculDif(p);
 		// TODO Auto-generated method stub
-		return 0;
+		return retour + dif;
 	}
 
+	public static int calculDif(int[] t) {
+		int dif = 0;
+		if (t.length == 0)
+			dif = 0;
+		else
+			for (int i = 1; i < t.length - 1; i++) {
+				dif = t[i] - t[i - 1];
+			}
+		return dif;
+	}
 }
