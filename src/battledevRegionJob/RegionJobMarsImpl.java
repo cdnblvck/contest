@@ -3,7 +3,7 @@ package battledevRegionJob;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InterfaceRegionJobMarsImpl implements RegionJobMars2016 {
+public class RegionJobMarsImpl implements RegionJobMars2016 {
 	public int longMot(int n, List<String> dico) {
 		int plusLong = Integer.MIN_VALUE;
 		String mots = "";
